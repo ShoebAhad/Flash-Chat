@@ -1,29 +1,53 @@
 import React from "react";
-import {Typography,AppBar} from "@material-ui/core";
+import { Typography, AppBar } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 
- import Options from "./Components/Options";
- import VideoPlayer from "./Components/VideoPlayer";
- import Notifications from "./Components/Notifications";
+import VideoPlayer from "./components/VideoPlayer";
+import Options from "./components/Options";
+import Notifications from "./components/Notifications";
 
+const useStyles = makeStyles((theme) => ({
+  appBar: {
+    borderRadius: 15,
+    margin: "30px 100px",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "600px",
+    border: "2px solid black",
 
-const App = ()=>{
-    return (
-    <div>
-       <AppBar position="static" color="inherit">
-        <Typography variant="h2" align="center">
-            Video Chat App
-              </Typography>
-        
-          <VideoPlayer/>
-          <Options>
-            <Notifications/>
-          </Options>
+    [theme.breakpoints.down("xs")]: {
+      width: "90%",
+    },
+  },
+  image: {
+    marginLeft: "15px",
+  },
+  wrapper: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    width: "100%",
+  },
+}));
 
-       </AppBar>
+const App = () => {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.wrapper}>
+      <AppBar className={classes.appBar} position="static" color="inherit">
+        <Typography variant="h2" align="center" bg="">
+          Flash Chat
+        </Typography>
+      </AppBar>
+      <VideoPlayer />
+      <Options>
+        <Notifications />
+      </Options>
     </div>
-    );
-
-  
+  );
 };
 
 export default App;
