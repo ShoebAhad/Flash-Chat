@@ -1,12 +1,12 @@
 import React, { createContext, useState, useRef, useEffect } from "react";
 import { io } from "socket.io-client";
-import Peer from "simple-peer"; // Problem in here major??
+import Peer from "simple-peer"; 
 
 const SocketContext = createContext();
 
 const socket = io("http://localhost:5000");
 //const socket = io('https://warm-wildwood-81069.herokuapp.com');
-
+//context provider wraps the children elements.
 const ContextProvider = ({ children }) => {
   const [callAccepted, setCallAccepted] = useState(false);
   const [callEnded, setCallEnded] = useState(false);
@@ -14,11 +14,11 @@ const ContextProvider = ({ children }) => {
   const [name, setName] = useState("");
   const [call, setCall] = useState({});
   const [me, setMe] = useState("");
-
+//Used to interact with the DOM elements.
   const myVideo = useRef(null);
   const userVideo = useRef();
   const connectionRef = useRef();
-
+//It requests access to the user's media devices (video and audio) using the navigator.mediaDevices.getUserMedia() method. 
   useEffect(() => {
     navigator.mediaDevices
       .getUserMedia({ video: true, audio: true })
@@ -74,6 +74,12 @@ const ContextProvider = ({ children }) => {
 
       peer.signal(signal);
     });
+
+     // socket.on("callAccepted", (signal) => {
+    //   setCallAccepted(true);
+
+    //   peer.signal(signal);
+    // });
 
     connectionRef.current = peer;
   };

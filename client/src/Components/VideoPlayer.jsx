@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { Grid, Typography, Paper, makeStyles } from "@material-ui/core";
-
+import "../index.css";
 import { SocketContext } from "../Context";
 
 const useStyles = makeStyles((theme) => ({
   video: {
     width: "550px",
     [theme.breakpoints.down("xs")]: {
-      width: "300px",
+      width: "350px",
     },
   },
   gridContainer: {
@@ -40,7 +40,7 @@ const VideoPlayer = () => {
             muted
             ref={myVideo}
             autoPlay
-            className={classes.video}
+            className={`${classes.video} Video`}
           />
         </Grid>
       </Paper>
@@ -54,7 +54,7 @@ const VideoPlayer = () => {
               playsInline
               ref={userVideo}
               autoPlay
-              className={classes.video}
+              className={`${classes.video} Video`}
             />
           </Grid>
         </Paper>
