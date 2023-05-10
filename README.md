@@ -15,3 +15,14 @@ Signaling messages, which handle session negotiation and establishment, are typi
 TCP is a reliable, connection-oriented protocol that guarantees the delivery of data packets. 
 Its reliability ensures that signaling messages are not lost or corrupted during transmission, 
 which is critical for establishing and maintaining a successful WebRTC connection.
+
+To run the app:You must install the dependencies for react and react router dom.
+First you need to create a server.then use 
+npx create-react-app ./client for creating client.
+
+The download all the dependencies from below:
+
+FInally run server and client at a time. 
+To run server side code,in terminal write nodemon server.js
+To run client,write npm start 
+ Now your code is ready to run in the browser.
