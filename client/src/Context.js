@@ -1,6 +1,6 @@
 import React, { createContext, useState, useRef, useEffect } from "react";
 import { io } from "socket.io-client";
-import Peer from "simple-peer"; 
+import Peer from "simple-peer";
 
 const SocketContext = createContext();
 
@@ -14,11 +14,11 @@ const ContextProvider = ({ children }) => {
   const [name, setName] = useState("");
   const [call, setCall] = useState({});
   const [me, setMe] = useState("");
-//Used to interact with the DOM elements.
+  //Used to interact with the DOM elements.
   const myVideo = useRef(null);
   const userVideo = useRef();
   const connectionRef = useRef();
-//It requests access to the user's media devices (video and audio) using the navigator.mediaDevices.getUserMedia() method. 
+  //It requests access to the user's media devices (video and audio) using the navigator.mediaDevices.getUserMedia() method.
   useEffect(() => {
     navigator.mediaDevices
       .getUserMedia({ video: true, audio: true })
@@ -75,7 +75,7 @@ const ContextProvider = ({ children }) => {
       peer.signal(signal);
     });
 
-     // socket.on("callAccepted", (signal) => {
+    // socket.on("callAccepted", (signal) => {
     //   setCallAccepted(true);
 
     //   peer.signal(signal);
@@ -86,12 +86,11 @@ const ContextProvider = ({ children }) => {
 
   const leaveCall = () => {
     setCallEnded(true);
-
-    connectionRef.current.destroy();
+    
 
     window.location.reload();
   };
-
+  
   return (
     <SocketContext.Provider
       value={{

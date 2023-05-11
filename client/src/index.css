@@ -19,6 +19,12 @@ body {
     padding: 0;
 }
 
-.Video {
+.myVideo {
   max-width: fit-content !important;
+  height: auto;
+}
+
+.userVideo {
+  max-width: fit-content !important;
+  height:auto;
 }

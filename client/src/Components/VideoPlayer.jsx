@@ -40,7 +40,7 @@ const VideoPlayer = () => {
             muted
             ref={myVideo}
             autoPlay
-            className={`${classes.video} Video`}
+            className={`${classes.video} myVideo`}
           />
         </Grid>
       </Paper>
@@ -54,7 +54,7 @@ const VideoPlayer = () => {
               playsInline
               ref={userVideo}
               autoPlay
-              className={`${classes.video} Video`}
+              className={`${classes.video} userVideo`}
             />
           </Grid>
         </Paper>

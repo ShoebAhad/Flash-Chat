@@ -23,7 +23,8 @@ app.get('/', (req, res) => {
 
 
 io.on("connection", (socket) => {
-	socket.emit("me", socket.id);
+
+	try {socket.emit("me", socket.id);
 
 	
 
@@ -41,6 +42,11 @@ io.on("connection", (socket) => {
 	socket.on("answerCall", (data) => {
 		io.to(data.to).emit("callAccepted", data.signal)
 	});
+		
+	} catch (error) {
+		console.log(error)
+	}
+	
 });
 
 server.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
