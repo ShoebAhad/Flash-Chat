@@ -20,7 +20,7 @@ To run the app:You must install the dependencies for react and react router dom.
 First you need to create a server.then use 
 npx create-react-app ./client for creating client.
 
-The download all the dependencies from below:
+The download all the dependencies needed for react and WebRTC.
 
 FInally run server and client at a time. 
 To run server side code,in terminal write nodemon server.js
